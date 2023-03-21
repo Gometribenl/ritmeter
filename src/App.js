@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Form from './components/Form';
+import Result from './components/Result';
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import Menu from './components/Menu'
 
 function App() {
+  const [tableData, setTableData] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <Menu>
+              <Link style={{color: '#fff', textDecoration: 'none', fontWeight: 'bold'}} to="/"><Typography variant="h6"  color='danger'>Home</Typography></Link>
+              <Link style={{color: '#fff', textDecoration: 'none', fontWeight: 'bold'}} to="/form"><Typography variant="h6">Form</Typography></Link>
+          </Menu>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/form" element={<Form setTableData={setTableData} />} />
+          <Route path="/result" element={<Result tableData={tableData} />} />
+        </Routes>
+      </Router>
   );
 }
 
