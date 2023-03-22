@@ -146,7 +146,7 @@ function Form({ setTableData }) {
                 <TextField
                     required
                     label="Nummer van de maand"
-                    type="month"
+                    type="number"
                     value={month}
                     onChange={(e) => setMonth(e.target.value)}
                 />

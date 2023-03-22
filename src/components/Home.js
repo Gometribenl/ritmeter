@@ -4,7 +4,7 @@ import {Container, Button, Typography} from "@mui/material";
 function Home() {
     return (
         <Container maxWidth="md">
-            <Typography variant="h1">Welcome bij de ritmeter calculator!</Typography>
+            <Typography variant="h2">Welcome bij de ritmeter calculator!</Typography>
             <Typography>
                 Om te beginnen klik op de knop hieronder om het formulier te krijgen voor de berekening.
             </Typography>

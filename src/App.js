@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Form from './components/Form';
@@ -9,6 +9,10 @@ import Menu from './components/Menu'
 
 function App() {
   const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+        document.title = "Ritmeter";
+    }, []);
 
   return (
       <Router>
