@@ -11,13 +11,14 @@ function Result({ tableData }) {
 
     const headers = [
         { label: "Datum", key: "date" },
-        { label: "Adres", key: "address" },
+        { label: "Van (plaats/postcode)", key: "from" },
+        { label: "Naar (plaats/postcode)", key: "to" },
         { label: "Kilometers", key: "km" }
     ]
 
     const calculateTotal = () => {
         const totalKm = tableData.reduce((acc, row) => acc + row[1].km + row[0].km, 0);
-        setTotalKm(totalKm);
+        setTotalKm(totalKm.toFixed(2));
         setTotalCompensation(`€${(totalKm * 0.21).toFixed(2)}`);
     };
 
@@ -44,15 +45,15 @@ function Result({ tableData }) {
                     <React.Fragment key={index}>
                         <tr>
                             <td>{toWork.date}</td>
-                            <td>{toWork.homeAddress}</td>
-                            <td>{toWork.workAddress}</td>
+                            <td>{toWork.from}</td>
+                            <td>{toWork.to}</td>
                             <td>{toWork.km}</td>
                             <td>{`€${(toWork.km * 0.21).toFixed(2)}`}</td>
                         </tr>
                         <tr>
                             <td>{toHome.date}</td>
-                            <td>{toHome.workAddress}</td>
-                            <td>{toHome.homeAddress}</td>
+                            <td>{toHome.from}</td>
+                            <td>{toHome.to}</td>
                             <td>{toHome.km}</td>
                             <td>{`€${(toHome.km * 0.21).toFixed(2)}`}</td>
                         </tr>

@@ -39,14 +39,14 @@ function Form({ setTableData }) {
             const formattedDate = format(date, 'dd.MM.yyyy');
             const toWork = {
                 date: formattedDate,
-                workAddress: workAddress,
-                homeAddress: homeAddress,
+                to: workAddress,
+                from: homeAddress,
                 km: kmGoingToWork,
             };
             const toHome = {
                 date: formattedDate,
-                workAddress: workAddress,
-                homeAddress: homeAddress,
+                to: homeAddress,
+                from: workAddress,
                 km: kmGoingHome,
             };
             return [toWork, toHome];
